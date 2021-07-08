@@ -17,4 +17,5 @@ def DataLic(cabecalho):
 
         return data_fim
     except:
+        print('erro na data da licitação')
         return '---'
