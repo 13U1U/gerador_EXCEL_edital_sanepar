@@ -8,6 +8,8 @@ from data import DataLic
 from modo_de_disputa import ModoDisputa
 from regime import Regime
 from preco import PrecoText
+from quadro_a import QuadroA
+from capacidade_tecnica import CapTecnica
 
 from time import sleep
 import xlsxwriter
@@ -35,6 +37,8 @@ for numero_edital in range(len(LinksProcurar)):
     excel.write('D'+str(numero_edital), ModoDisputa(cabecalho)) #modo de disputa
     excel.write('E'+str(numero_edital), Regime(cabecalho)) #regime
     excel.write('F'+str(numero_edital), PrecoText(TextoStr)) # preço
+    excel.write('G'+str(numero_edital), QuadroA(TextoStr)) # quadro A
+    excel.write('H'+str(numero_edital), CapTecnica(TextoStr)) # capacidade tecnica
 
     sleep(0.2)
 
