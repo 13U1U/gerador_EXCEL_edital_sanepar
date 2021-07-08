@@ -14,4 +14,5 @@ def NLicitacao(texto):
         return num_licitacao
     
     except:
+        print('erro no numero da licitação')
         return '---'
