@@ -5,6 +5,9 @@ from N_licitacao import  NLicitacao
 from cabecalho import  CabecalhoTrado
 from objeto import Objeto
 from data import DataLic
+from modo_de_disputa import ModoDisputa
+from regime import Regime
+from preco import PrecoText
 
 from time import sleep
 import xlsxwriter
@@ -29,6 +32,9 @@ for numero_edital in range(len(LinksProcurar)):
     excel.write('A'+str(numero_edital), NLicitacao(TextoStr)) #numero da licitação
     excel.write('B'+str(numero_edital), Objeto(TextoStr)) # Objeto
     excel.write('C'+str(numero_edital), DataLic(cabecalho)) # Data entrega
+    excel.write('D'+str(numero_edital), ModoDisputa(cabecalho)) #modo de disputa
+    excel.write('E'+str(numero_edital), Regime(cabecalho)) #regime
+    excel.write('F'+str(numero_edital), PrecoText(TextoStr)) # preço
 
     sleep(0.2)
 
