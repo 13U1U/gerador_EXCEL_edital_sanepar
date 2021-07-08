@@ -14,4 +14,5 @@ def Objeto(texto):
         return objeto
 
     except:
+        print('erro no objeto')
         return '---'
