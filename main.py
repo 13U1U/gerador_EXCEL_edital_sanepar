@@ -1,5 +1,5 @@
 from web_scraper import WebScrap
-# from web_driver import WebDriv
+from web_driver import WebDriv #cometar essa parte caso não quera fazer o dowlond dos arquivos
 from PDF_to_string import PdfToString
 from N_licitacao import  NLicitacao
 from cabecalho import  CabecalhoTrado
@@ -17,7 +17,7 @@ import xlsxwriter
 
 # Automação Web Para Fazer o Dowlond de todos os editais
 LinksProcurar = WebScrap()
-# WebDriv(LinksProcurar)
+WebDriv(LinksProcurar) #cometar essa parte caso não quera fazer o dowlond dos arquivos
 
 
 # Medodos para ajeitar o excel
@@ -38,20 +38,20 @@ excel.set_default_row(100)
 
 
 # adicionando ao excel
-for numero_edital in range(len(LinksProcurar)): #len(LinksProcurar
+for numero_edital in range(len(LinksProcurar)):
     numero_edital += 1
 
     TextoStr = PdfToString(numero_edital)
     cabecalho = CabecalhoTrado(TextoStr)
 
-    excel.write('A'+str(numero_edital), NLicitacao(TextoStr), cell_format) #numero da licitação
-    excel.write('B'+str(numero_edital), Objeto(TextoStr), cell_format) # Objeto
-    excel.write('C'+str(numero_edital), DataLic(cabecalho), cell_format) # Data entrega
-    excel.write('D'+str(numero_edital), ModoDisputa(cabecalho), cell_format) #modo de disputa
-    excel.write('E'+str(numero_edital), Regime(cabecalho), cell_format) #regime
-    excel.write('F'+str(numero_edital), PrecoText(TextoStr), cell_format) # preço
-    excel.write('G'+str(numero_edital), QuadroA(TextoStr), cell_format) # quadro A
-    excel.write('H'+str(numero_edital), CapTecnica(TextoStr), cell_format) # capacidade tecnica
+    excel.write('A'+str(numero_edital), NLicitacao(TextoStr), cell_format)   # numero da licitação
+    excel.write('B'+str(numero_edital), Objeto(TextoStr), cell_format)       # Objeto
+    excel.write('C'+str(numero_edital), DataLic(cabecalho), cell_format)     # Data entrega
+    excel.write('D'+str(numero_edital), ModoDisputa(cabecalho), cell_format) # modo de disputa
+    excel.write('E'+str(numero_edital), Regime(cabecalho), cell_format)      # regime
+    excel.write('F'+str(numero_edital), PrecoText(TextoStr), cell_format)    # preço
+    excel.write('G'+str(numero_edital), QuadroA(TextoStr), cell_format)      # quadro A
+    excel.write('H'+str(numero_edital), CapTecnica(TextoStr), cell_format)   # capacidade tecnica
 
     sleep(0.2)
 
