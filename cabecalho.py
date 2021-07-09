@@ -9,7 +9,8 @@ def CabecalhoTrado(texto):
 
         cabecalho = textoC2[valor_inicio:valor_fim]
         cabecalho = cabecalho.replace('\n', ' ')
-        cabecalho.split(',')
+        cabecalho = cabecalho.split(',')
+
 
         return  cabecalho
 
