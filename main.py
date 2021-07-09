@@ -20,25 +20,38 @@ LinksProcurar = WebScrap()
 # WebDriv(LinksProcurar)
 
 
+# Medodos para ajeitar o excel
 file = xlsxwriter.Workbook("Sanepar_Editais.xlsm")
 excel = file.add_worksheet()
 
+cell_format = file.add_format()
+cell_format.set_text_wrap()
+cell_format.set_align('center')
+cell_format.set_align('vcenter')
+
+excel.set_column(0, 0, 10)
+excel.set_column(1, 1, 60)
+excel.set_column(2, 4, 40)
+excel.set_column(5, 6, 120)
+excel.set_column(7, 7, 40)
+excel.set_default_row(100)
+
 
 # adicionando ao excel
-for numero_edital in range(len(LinksProcurar)):
+for numero_edital in range(len(LinksProcurar)): #len(LinksProcurar
     numero_edital += 1
 
     TextoStr = PdfToString(numero_edital)
     cabecalho = CabecalhoTrado(TextoStr)
 
-    excel.write('A'+str(numero_edital), NLicitacao(TextoStr)) #numero da licitação
-    excel.write('B'+str(numero_edital), Objeto(TextoStr)) # Objeto
-    excel.write('C'+str(numero_edital), DataLic(cabecalho)) # Data entrega
-    excel.write('D'+str(numero_edital), ModoDisputa(cabecalho)) #modo de disputa
-    excel.write('E'+str(numero_edital), Regime(cabecalho)) #regime
-    excel.write('F'+str(numero_edital), PrecoText(TextoStr)) # preço
-    excel.write('G'+str(numero_edital), QuadroA(TextoStr)) # quadro A
-    excel.write('H'+str(numero_edital), CapTecnica(TextoStr)) # capacidade tecnica
+    excel.write('A'+str(numero_edital), NLicitacao(TextoStr), cell_format) #numero da licitação
+    excel.write('B'+str(numero_edital), Objeto(TextoStr), cell_format) # Objeto
+    excel.write('C'+str(numero_edital), DataLic(cabecalho), cell_format) # Data entrega
+    excel.write('D'+str(numero_edital), ModoDisputa(cabecalho), cell_format) #modo de disputa
+    excel.write('E'+str(numero_edital), Regime(cabecalho), cell_format) #regime
+    excel.write('F'+str(numero_edital), PrecoText(TextoStr), cell_format) # preço
+    excel.write('G'+str(numero_edital), QuadroA(TextoStr), cell_format) # quadro A
+    excel.write('H'+str(numero_edital), CapTecnica(TextoStr), cell_format) # capacidade tecnica
 
     sleep(0.2)
 
