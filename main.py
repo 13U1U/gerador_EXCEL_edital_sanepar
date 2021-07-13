@@ -10,6 +10,7 @@ from regime import Regime
 from preco import PrecoText
 from quadro_a import QuadroA
 from capacidade_tecnica import CapTecnica
+from txt_dados import TxtAnalise
 
 from time import sleep
 import xlsxwriter
@@ -17,7 +18,8 @@ import xlsxwriter
 
 # Automação Web Para Fazer o Dowlond de todos os editais
 LinksProcurar = WebScrap()
-WebDriv(LinksProcurar) #cometar essa parte caso não quera fazer o dowlond dos arquivos
+LinksNovos = TxtAnalise(LinksProcurar)
+WebDriv(LinksNovos) #cometar essa parte caso não quera fazer o dowlond dos arquivos
 
 
 # Medodos para ajeitar o excel
