@@ -23,9 +23,12 @@ def WebDriv(lista_links):
                 navegador.find_element_by_xpath('//*[@id="wbtn_semcadastro"]').click()
                 sleep(1)
             except:
-                navegador.get(lista_links[cont])
-                navegador.find_element_by_xpath('//*[@id="wrdb_anexos_1"]').click()
-                navegador.find_element_by_xpath('//*[@id="lbdownload"]').click()
-                navegador.find_element_by_xpath('//*[@id="wbtn_semcadastro"]').click()
+                try:
+                    navegador.get(lista_links[cont])
+                    navegador.find_element_by_xpath('//*[@id="wrdb_anexos_1"]').click()
+                    navegador.find_element_by_xpath('//*[@id="lbdownload"]').click()
+                    navegador.find_element_by_xpath('//*[@id="wbtn_semcadastro"]').click()
+                except:
+                    pass
 
     return
