@@ -50,14 +50,14 @@ else:
         TextoStr = PdfToString(numero_edital)
         cabecalho = CabecalhoTrado(TextoStr)
 
-        excel.write('A'+str(numero_edital), NLicitacao(TextoStr), cell_format)    # numero da licitação
-        excel.write('B'+str(numero_edital), Objeto(TextoStr), cell_format)        # Objeto
-        excel.write('C'+str(numero_edital), DataLic(cabecalho), cell_format)      # Data entrega
-        excel.write('D'+str(numero_edital), ModoDisputa(cabecalho), cell_format)  # modo de disputa
-        excel.write('E'+str(numero_edital), Regime(cabecalho), cell_format)       # regime
-        excel.write('F'+str(numero_edital), PrecoText(TextoStr), cell_format)     # preço
-        excel.write('G'+str(numero_edital), QuadroA(TextoStr), cell_format)       # quadro A
-        excel.write('H'+str(numero_edital), CapTecnica(TextoStr), cell_format)    # capacidade tecnica
+        excel.write('A'+str(numero_edital), NLicitacao(cabecalho), cell_format)    # numero da licitação
+        excel.write('B'+str(numero_edital), Objeto(TextoStr), cell_format)         # Objeto
+        excel.write('C'+str(numero_edital), DataLic(cabecalho), cell_format)       # Data entrega
+        excel.write('D'+str(numero_edital), ModoDisputa(cabecalho), cell_format)   # modo de disputa
+        excel.write('E'+str(numero_edital), Regime(cabecalho), cell_format)        # regime
+        excel.write('F'+str(numero_edital), PrecoText(TextoStr), cell_format)      # preço
+        excel.write('G'+str(numero_edital), QuadroA(TextoStr), cell_format)        # quadro A
+        excel.write('H'+str(numero_edital), CapTecnica(TextoStr), cell_format)     # capacidade tecnica
 
         sleep(0.2)
 
