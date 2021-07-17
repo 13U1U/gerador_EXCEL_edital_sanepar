@@ -1,17 +1,18 @@
 import copy
 
-def NLicitacao(texto):
+def NLicitacao(cabecalho):
     try:
-        text_n = copy.copy(texto)
-        LPdf = text_n.split()
+        num_licitacao = ''
+        ntext = copy.copy(cabecalho)
 
-        valorN = LPdf.index('N°')
-        del LPdf[:valorN+1]
+        for frases in range(len(ntext)):
+            if 'Nº' in ntext[frases]:
+                num_licitacao = str(ntext[frases])
 
-        num_licitacao =  LPdf[0]
-
-        if num_licitacao == '1':
-            num_licitacao = LPdf[1]
+        num_licitacao = num_licitacao.replace('Licitação', '')
+        num_licitacao = num_licitacao.replace('Pública', '')
+        num_licitacao = num_licitacao.replace('Nº', '')
+        num_licitacao = num_licitacao.replace(' ', '')
 
         return num_licitacao
 
