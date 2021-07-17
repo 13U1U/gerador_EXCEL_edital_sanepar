@@ -9,10 +9,11 @@ def ModoDisputa(cabecalho):
         for frases in range(len(disputa)):
             if 'no modo de' in disputa[frases]:
                 disputa_fim = str(disputa[frases])
+            if 'no  modo de' in disputa[frases]:
+                disputa_fim = str(disputa[frases])
 
         return disputa_fim
 
     except:
         print('erro no modo de disputa')
         return '---'
-      
