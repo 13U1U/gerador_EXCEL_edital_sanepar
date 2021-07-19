@@ -1,8 +1,8 @@
 from web_scraper import WebScrap
-from web_driver import WebDriv #cometar essa parte caso não quera fazer o dowlond dos arquivos
+from web_driver import WebDriv  # cometar essa parte caso não quera fazer o dowlond dos arquivos
 from PDF_to_string import PdfToString
 from N_licitacao import NLicitacao
-from cabecalho import CabecalhoTrado
+from cabecalho import cabecalhotrado
 from objeto import Objeto
 from data import DataLic
 from modo_de_disputa import ModoDisputa
@@ -23,10 +23,10 @@ teste = []
 if LinksNovos == teste:
     print('Não á licitaçãoes novas')
 else:
-    WebDriv(LinksNovos) #cometar essa parte caso não quera fazer o dowlond dos arquivos
+    WebDriv(LinksNovos)  # cometar essa parte caso não quera fazer o dowlond dos arquivos
 
 
-    # Medodos para ajeitar o excel
+# Medodos para ajeitar o excel
     file = xlsxwriter.Workbook("Sanepar_Editais.xlsm")
     excel = file.add_worksheet()
 
@@ -43,12 +43,12 @@ else:
     excel.set_default_row(100)
 
 
-    # adicionando ao excel
+# adicionando ao excel
     for numero_edital in range(len(LinksNovos)):
         numero_edital += 1
 
         TextoStr = PdfToString(numero_edital)
-        cabecalho = CabecalhoTrado(TextoStr)
+        cabecalho = cabecalhotrado(TextoStr)
 
         excel.write('A'+str(numero_edital), NLicitacao(cabecalho), cell_format)    # numero da licitação
         excel.write('B'+str(numero_edital), Objeto(TextoStr), cell_format)         # Objeto
