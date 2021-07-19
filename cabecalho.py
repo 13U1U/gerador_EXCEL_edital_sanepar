@@ -1,17 +1,17 @@
 import copy
 
 
-def CabecalhoTrado(texto):
+def cabecalhotrado(texto):
     try:
-        textoC2 = copy.copy(texto)
-        valor_inicio = textoC2.index('Companhia')
-        valor_fim = textoC2.index('CAPÍTULO I')
+        textoc2 = copy.copy(texto)
+        valor_inicio = textoc2.index('Companhia')
+        valor_fim = textoc2.index('CAPÍTULO I')
 
-        cabecalho = textoC2[valor_inicio:valor_fim]
+        cabecalho = textoc2[valor_inicio:valor_fim]
         cabecalho = cabecalho.replace('\n', ' ')
         cabecalho = cabecalho.split(',')
 
-        return  cabecalho
+        return cabecalho
 
     except:
         print('erro no cabeçalho')
